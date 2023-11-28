@@ -1,0 +1,66 @@
+[
+  {
+    "nombre": "Vlad",
+    "ayer": [
+      "Acomodar filminas",
+      "Subir archivos al Drive"
+    ],
+    "hoy": [
+      "Dar clase",
+      "Subir grabación a Youtube",
+      "Pasar asistencia"
+    ],
+    "maniana": [
+      "Revisar avances",
+      "Responder mails",
+      "Adelantar código para próxima clase",
+      "Responder mails"
+    ]
+  },
+  {
+    "nombre": "Fernando",
+    "ayer": [
+      "Prueba A",
+      "Prueba B"
+    ],
+    "hoy": [
+      "Prueba C",
+      "Prueba D"
+    ],
+    "maniana": [
+      "Prueba E",
+      "Prueba F"
+    ]
+  },
+  {
+    "nombre": "Matias",
+    "ayer": [
+      "Tarea A",
+      "Tarea B",
+      "Tarea C"
+    ],
+    "hoy": [
+      "Tarea D",
+      "Tarea E"
+    ],
+    "maniana": [
+      "Tarea F",
+      "Tarea G"
+    ]
+  },
+  {
+    "nombre": "Nikolai",
+    "ayer": [
+      "Prueba 1",
+      "Prueba 2"
+    ],
+    "hoy": [
+      "Prueba 3",
+      "Prueba 4"
+    ],
+    "maniana": [
+      "Prueba 5",
+      "Prueba 6"
+    ]
+  }
+]

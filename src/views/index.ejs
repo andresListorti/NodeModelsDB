@@ -1,0 +1,126 @@
+<%- include('partials/head'); -%>
+  <body>
+  	<header>
+  		<div class="container-fluid">
+  			<div class="row">
+				  <h2 class="col-12 col-md-6 col-lg-10">Mi Lista de Tareas</h2>
+				  <p class="col-12 col-md-6 col-lg-2 btn btn-info">Administrar</p>
+				</div>
+				<div class="row">
+				  <input class="col-12 col-md-8 col-lg-10" type="text" name="tareaNueva" placeholder="Nombre de tarea...">
+				  <button class="col-12 col-md-4 col-lg-2 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#añadirTarea">Añadir</button>
+
+				  <div class="modal fade" id="añadirTarea" data-bs-backdrop="static" tabindex="-1" aria-labelledby="añadirTareaLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h1 class="modal-title" id="añadirTareaLabel">Tarea a añadir</h1>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <form action="/home" method="POST" enctype="application/x-www-form-urlencoded">
+						      <div class="modal-body">
+						        <label><h3>Dia de adición</h3><input class="border" type="date" name="fecha"></label>
+						        <label><h5>Info adicional</h5><input class="border" type="text" name="tooltip"></label>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+						        <button type="submit" class="btn btn-primary">Guardar</button>
+						      </div>
+						    </form>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div id="carouselExampleIndicators" class="carousel slide">
+			  <div class="carousel-indicators">
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-label="Slide 1"></button>
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			  </div>
+			  <div class="carousel-inner">
+			    <div class="carousel-item">
+			      <section class="card">
+							<div class="card-body">
+								<h3 class="card-title text-center">Ayer</h3>
+								<ul>
+									<% lista.forEach(tarea => { %>
+										<% if(tarea.fecha == 'aye' ) { %>
+								  	<li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<%= tarea.tooltip ? tarea.tooltip : ' ' %>"><%= tarea.descripcion %></li>
+								  		<% } %> 
+								  	<% }) %> 
+								  <!--li>Ir al gimnasio</li>
+								  <li class="listo">Pagar las cuentas</li>
+								  <li>Juntarme con Marcos</li>
+								  <li>Comprar pan</li>
+								  <li>Leer un capítulo del libro</li>
+								  <li>Organizar mi pieza</li-->
+								</ul>
+							</div>
+					  </section>
+			    </div>
+			    <div class="carousel-item active">
+			      <section class="card">
+							<div class="card-body">
+								<h3 class="card-title text-center text-info">Hoy</h3>
+								<ul>
+									<% lista.forEach(tarea => { %>
+										<% if(tarea.fecha == 'hoy' ) { %>
+								  	<li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<%= tarea.tooltip ? tarea.tooltip : ' ' %>"><%= tarea.descripcion %></li>
+								  		<% } %> 
+								  	<% }) %> 
+								  <!--li class="listo">Pagar las cuentas</li>
+								  <li>Juntarme con Marcos</li>
+								  <li>Comprar pan</li>
+								  <li>Leer un capítulo del libro</li>
+								  <li>Organizar mi pieza</li-->
+								</ul>
+							</div>
+					  </section>
+			    </div>
+			    <div class="carousel-item">
+			      <section class="card">
+							<div class="card-body">
+								<h3 class="card-title text-center">Mañana</h3>
+								<ul>
+									<% lista.forEach(tarea => { %>
+										<% if(tarea.fecha == 'man' ) { %>
+								  	<li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<%= tarea.tooltip ? tarea.tooltip : ' ' %>"><%= tarea.descripcion %></li>
+								  		<% } %> 
+								  	<% }) %> 
+								  <!--li>Ir al gimnasio</li>
+								  <li class="listo">Pagar las cuentas</li>
+								  <li>Juntarme con Marcos</li>
+								  <li>Comprar pan</li>
+								  <li>Leer un capítulo del libro</li>
+								  <li>Organizar mi pieza</li-->
+								</ul>
+							</div>
+					  </section>	
+			    </div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+		</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+			const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+		</script>
+
+		<script type="text/javascript" src="JS/index.js"></script>
+		<!--script type="text/javascript" src="JS/complementos.js"></script-->
+
+  </body>
+</html>
